@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sat-lite privacy policy</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <header>
+    <img src="../icon.png" alt="">
+    <a href="../">Sat-lite</a>
+  </header>
+  <h1>Privacy policy</h1>
+<p><strong>Effective date:</strong> 25 November 2026 (America/Chicago). Update this date if the page is published later.</p>
+<p>This policy applies to the Sat-lite iPhone app and its Apple Watch companion (including the Watch pass widget), published by K9QKL. It is written from the current application code (marketing version 0.10.0, build 61) and should be reviewed if the app changes before the privacy-policy URL goes live.</p>
+<h2>Summary</h2>
+<p>Sat-lite has no in-app accounts, no advertising, and no analytics or crash-reporting SDK. The developer does not operate a server that receives your data. The app talks to your radio (on the local network or over Bluetooth) and, only when you use the related feature, to the third-party amateur-radio services listed below.</p>
+<p>The app does not track you across other companies’ apps or websites, does not use the App Tracking Transparency identifier (IDFA), and does not sell or share data for advertising.</p>
+<h2>Data stored on your device</h2>
+<p>The following stay on the device unless you export or share them yourself (for example through the Files app or a share sheet):</p>
+<ul>
+<li>Station settings: callsign, Maidenhead grid square, optional latitude, longitude and altitude, unit preference, layout and other preferences (in app storage / UserDefaults).</li>
+<li>Radio profiles: model, address, port, network user name and similar connection settings. <strong>Network user passwords are not stored here.</strong></li>
+<li>The QSO log (<code>Documents/Logs/icom-native.adi</code>, visible in the Files app when file sharing is used).</li>
+<li>The on-device Winlink mailbox (message files under the app’s Documents folder).</li>
+<li>Cached satellite data (orbital elements, catalog, news and status) and received SSTV pictures.</li>
+<li>A local record of which QSO log entries have already been accepted by QRZ Logbook, and the last pan and zoom of the APRS map.</li>
+<li>A copy of the next-pass plan in the shared App Group, so the Apple Watch app and widget can show it.</li>
+</ul>
+<p>Deleting the app removes this on-device data (including Keychain items for this app).</p>
+<h3>Keychain</h3>
+<p>These secrets are stored only in the iOS Keychain (accessible after first unlock on this device) and are never written to logs, UserDefaults, or shareable files:</p>
+<ul>
+<li>The network password for each Icom LAN radio profile.</li>
+<li>The Winlink account password (entered only in Winlink settings).</li>
+<li>The QRZ Logbook API key (entered only in Settings &gt; Station &gt; QRZ Logbook upload, or from the QSO log setup screen).</li>
+<li>A one-way hash of the optional Developer Mode PIN (not the PIN itself). Developer Mode only reveals extra diagnostics; it is not required for normal use.</li>
+</ul>
+<h2>Location</h2>
+<p>Location is <strong>optional</strong> and <strong>When In Use only</strong>. Nothing is requested until you turn on Settings &gt; Station &gt; Use phone location. The app does not use Always location or background location updates.</p>
+<p>When it is on, the phone’s location is used on the device to:</p>
+<ul>
+<li>Compute a Maidenhead grid square and satellite pass predictions (and recompute passes if you move a long way).</li>
+<li>Optionally put that grid into FT8, FT4 or WSPR messages, if you also enable Transmit grid from phone location.</li>
+<li>Time automatic APRS beacons (Fixed, Distance or Smart). While those beacons are armed, the app may request a more precise fix, including speed and course; it returns to a coarser, battery-friendly update once they stop.</li>
+<li>Look up nearby Parks on the Air parks (see below).</li>
+</ul>
+<p>You can instead type a grid square and, if you wish, latitude and longitude. Pass predictions work from a typed grid alone, with no location permission.</p>
+<p><strong>Heading</strong> (compass) is used only while the heading-up polar plot is on screen. The app does not request a separate permission for heading.</p>
+<p>Precise coordinates are not uploaded to a developer server. They can still leave the device in the ways listed under “Data sent off the device.”</p>
+<h2>Permissions (system prompts)</h2>
+<ul>
+<li><strong>Location (When In Use):</strong> optional, as described above.</li>
+<li><strong>Camera:</strong> optional. The satellite AR view shows a live camera preview so you can aim an antenna. Nothing is recorded, saved or sent.</li>
+<li><strong>Bluetooth:</strong> to connect to the ID52-Bridge, to a Bluetooth KISS TNC, and to a radio with built-in Bluetooth (for example the ID-5200).</li>
+<li><strong>Local Network:</strong> to reach an Icom radio’s LAN (RS-BA1) port and, if you use one, a Hamlib rotctld host on your network.</li>
+<li><strong>Photos (add):</strong> you can save a received SSTV picture to the photo library. You can also pick a picture from the library to transmit as SSTV. Pictures are used on the device for that purpose; they are not uploaded to a developer server.</li>
+<li><strong>Notifications:</strong> optional local alerts before a satellite pass, local notifications with sound for new APRS messages addressed to your callsign (Settings &gt; APRS &gt; Message alerts; on by default once you allow notifications), Watch pass alerts, and WSPR status. These are delivered on the device; they are not push notifications from a developer server.</li>
+</ul>
+<p>The app may play radio audio and, while a radio stays connected, a silent audio session so the link can remain up in the background. That session is playback, not recording.</p>
+<h2>Data sent off the device</h2>
+<p>Traffic goes directly from the phone to your radio or to the service you are using. The developer does not proxy it.</p>
+<h3>Your radio, bridge, TNC or rotator (local only)</h3>
+<p>While you are connected, the app sends radio commands and, where the link supports it, audio to equipment you configure (Icom LAN, the ID52-Bridge, built-in Bluetooth CI-V, a Bluetooth KISS TNC, or Hamlib rotctld on your network). This does not go through the internet unless your own network is set up that way.</p>
+<h3>Satellite data (downloads only)</h3>
+<p>These requests do not include your callsign, grid or location:</p>
+<ul>
+<li><strong>CelesTrak</strong> — amateur-group orbital elements, and, when you open a satellite info card, a SATCAT lookup by NORAD number.</li>
+<li><strong>AMSAT</strong> — current TLE file, News Service feed, and the AMSAT status API/page.</li>
+<li><strong>SatNOGS</strong> — satellite catalog, transmitters, TLE, last-heard observations, and (when shown) satellite pictures from the SatNOGS media host.</li>
+<li><strong>Wikidata</strong> — an on-demand SPARQL lookup by NORAD number for public satellite facts, only when you open that satellite’s info card. The request uses a fixed app user-agent; it does not include your station information.</li>
+</ul>
+<p>Cached copies are stored on the device for offline use.</p>
+<h3>Parks on the Air (api.pota.app)</h3>
+<ul>
+<li>Live activator spots are downloaded when you open that list (a public list; no account key).</li>
+<li>“Find nearby parks” requests parks in an area of about 30 km around a position (the phone’s location if you enabled it, otherwise the station position you entered).</li>
+</ul>
+<h3>PSK Reporter</h3>
+<p>If you turn on “Report my decodes to PSK Reporter” <strong>and</strong> a valid callsign and grid are set, the app uploads your callsign, a 4- or 6-character grid square, and callsigns (and related decode facts) from stations you decoded, about every five minutes, to <code>report.pskreporter.info</code>. “Who hears me” queries <code>retrieve.pskreporter.info</code> with your callsign.</p>
+<p>In the current code this upload setting defaults to <strong>on</strong>. No data is sent until a callsign and grid are present. You can turn the setting off in Settings &gt; Station. PSK Reporter’s own privacy policy applies to data it receives.</p>
+<h3>Winlink (cms.winlink.org by default)</h3>
+<p>When you tap Connect for internet Winlink, the app opens a telnet session to the host and port you configured (default <code>cms.winlink.org</code>, port 8772). It sends your callsign, a secure-login response derived from your account password (the password itself stays in the Keychain and is not logged), and the messages you send or receive. If “include location” is on (it defaults to on), an up-to-6-character grid locator is included in the session handshake. Packet Winlink goes over your radio or TNC instead of the internet CMS. Winlink’s own policies apply.</p>
+<p>The initial telnet door uses the public CMS telnet login, not your account password. The CMS session itself is a traditional telnet connection, not HTTPS.</p>
+<h3>QRZ Logbook (logbook.qrz.com)</h3>
+<p>The QRZ Logbook API key is stored only in the iOS Keychain. It is never written to logs, UserDefaults, status text or shareable files, and it is stripped from any error text the app displays.</p>
+<p>The key is sent only to <code>https://logbook.qrz.com/api</code>, and only when you ask the app to use it: when you check the key in QRZ Logbook settings (a STATUS request), or when you tap Upload in the QSO log (an INSERT request for each new QSO). QSO records (ADIF) are sent to QRZ only when you tap Upload. QSOs QRZ accepted, or already had, are remembered on the device and are not sent again.</p>
+<p>QRZ’s own privacy policy applies to data it receives. Any forwarding of confirmed QSOs to LoTW is configured in your QRZ account, not by this app.</p>
+<h3>Over the air (your transmissions)</h3>
+<p>Only when you arm transmit and send: APRS position reports and messages, digital-mode messages (which may include your callsign and grid), SSTV pictures, Winlink packet, and similar on-air content. Other stations, IGates or the internet may receive what you transmit. The app does not itself connect to APRS-IS.</p>
+<h2>Apple Watch</h2>
+<p>The Watch app and widget are display-only. The iPhone sends the next-pass plan over Watch Connectivity into a shared App Group. The Watch does not collect location itself, does not control the radio, and its privacy manifest declares no collected data types.</p>
+<h2>Purchases</h2>
+<p>Sat-lite is free to download. An optional tip may be offered as an in-app purchase. Payment is processed by Apple. The app does not collect payment card numbers, bank details or other payment data.</p>
+<h2>License</h2>
+<p>Use of the app is proprietary and is governed by Apple’s standard Licensed Application End User License Agreement, together with the App Store terms under which you obtained it.</p>
+<h2>Children</h2>
+<p>Sat-lite is intended for licensed amateur radio operators and is not directed at children. It does not knowingly collect personal data from children.</p>
+<h2>Changes and contact</h2>
+<p>Changes to this policy will be posted at the privacy-policy URL with a new effective date.</p>
+<p>Questions or requests about this policy: <a href="mailto:droplet-53laminar@icloud.com">droplet-53laminar@icloud.com</a>.</p>
+<p>© 2026 K9QKL. All rights reserved.</p>
+</main>
+</body>
+</html>
