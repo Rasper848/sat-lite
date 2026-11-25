@@ -14,7 +14,7 @@
   </header>
   <h1>Privacy policy</h1>
 <p><strong>Effective date:</strong> 25 November 2026 (America/Chicago). Update this date if the page is published later.</p>
-<p>This policy applies to the Sat-lite iPhone app and its Apple Watch companion (including the Watch pass widget), published by K9QKL. It is written from the current application code (marketing version 0.10.0, build 61) and should be reviewed if the app changes before the privacy-policy URL goes live.</p>
+<p>This policy applies to the Sat-lite iPhone app and its Apple Watch companion (including the Watch pass widget), published by K9QKL. It is written from the current application code (marketing version 0.10.0, build 62) and should be reviewed if the app changes before the privacy-policy URL goes live.</p>
 <h2>Summary</h2>
 <p>Sat-lite has no in-app accounts, no advertising, and no analytics or crash-reporting SDK. The developer does not operate a server that receives your data. The app talks to your radio (on the local network or over Bluetooth) and, only when you use the related feature, to the third-party amateur-radio services listed below.</p>
 <p>The app does not track you across other companies’ apps or websites, does not use the App Tracking Transparency identifier (IDFA), and does not sell or share data for advertising.</p>
@@ -53,17 +53,18 @@
 <h2>Permissions (system prompts)</h2>
 <ul>
 <li><strong>Location (When In Use):</strong> optional, as described above.</li>
+<li><strong>Microphone:</strong> optional, asked for only when you start Phone audio or the Voice push-to-talk screen. The app then takes sound from the iPhone microphone or a USB audio interface (for example a Digirig) while phone audio is capturing, decodes it on the phone, and sends your voice or transmit audio only to your radio. Audio is not recorded, saved or uploaded, and it is never sent to the developer or any internet service. Capture stops when you stop phone audio or leave the Voice screen.</li>
 <li><strong>Camera:</strong> optional. The satellite AR view shows a live camera preview so you can aim an antenna. Nothing is recorded, saved or sent.</li>
-<li><strong>Bluetooth:</strong> to connect to the ID52-Bridge, to a Bluetooth KISS TNC, and to a radio with built-in Bluetooth (for example the ID-5200).</li>
-<li><strong>Local Network:</strong> to reach an Icom radio’s LAN (RS-BA1) port and, if you use one, a Hamlib rotctld host on your network.</li>
+<li><strong>Bluetooth:</strong> to connect to the ID52-Bridge, to a Bluetooth KISS TNC, to a Bluetooth CAT serial adapter on a radio's CAT jack, and to a radio with built-in Bluetooth (for example the ID-5200).</li>
+<li><strong>Local Network:</strong> to reach an Icom radio’s LAN (RS-BA1) port and, if you use them, Hamlib rigctld or rotctld hosts on your network.</li>
 <li><strong>Photos (add):</strong> you can save a received SSTV picture to the photo library. You can also pick a picture from the library to transmit as SSTV. Pictures are used on the device for that purpose; they are not uploaded to a developer server.</li>
 <li><strong>Notifications:</strong> optional local alerts before a satellite pass, local notifications with sound for new APRS messages addressed to your callsign (Settings &gt; APRS &gt; Message alerts; on by default once you allow notifications), Watch pass alerts, and WSPR status. These are delivered on the device; they are not push notifications from a developer server.</li>
 </ul>
-<p>The app may play radio audio and, while a radio stays connected, a silent audio session so the link can remain up in the background. That session is playback, not recording.</p>
+<p>The app may play radio audio and, while a radio stays connected, a silent audio session so the link can remain up in the background. That session is playback only, except while you have Phone audio or Voice running, when it also captures from the microphone or USB audio interface as described above. Nothing is recorded.</p>
 <h2>Data sent off the device</h2>
 <p>Traffic goes directly from the phone to your radio or to the service you are using. The developer does not proxy it.</p>
 <h3>Your radio, bridge, TNC or rotator (local only)</h3>
-<p>While you are connected, the app sends radio commands and, where the link supports it, audio to equipment you configure (Icom LAN, the ID52-Bridge, built-in Bluetooth CI-V, a Bluetooth KISS TNC, or Hamlib rotctld on your network). This does not go through the internet unless your own network is set up that way.</p>
+<p>While you are connected, the app sends radio commands and, where the link supports it, audio to equipment you configure (Icom LAN, the ID52-Bridge, built-in Bluetooth CI-V, a Bluetooth KISS TNC, a Bluetooth CAT serial adapter, a USB audio interface, or Hamlib rigctld / rotctld on your network). A bridge firmware file you choose in the Files app is sent only to your bridge over Bluetooth. This does not go through the internet unless your own network is set up that way.</p>
 <h3>Satellite data (downloads only)</h3>
 <p>These requests do not include your callsign, grid or location:</p>
 <ul>
